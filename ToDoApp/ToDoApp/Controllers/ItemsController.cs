@@ -77,6 +77,31 @@ namespace ToDoApp.Controllers
             return View(item);
         }
 
+        // Toggle check box
+        public ActionResult ToggleDone(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Item item = db.Items.Find(id);
+            if (item == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (item.IsDone == true)
+            {
+                item.IsDone = false;
+            }
+            else
+            {
+                item.IsDone = true;
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // POST: Items/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
