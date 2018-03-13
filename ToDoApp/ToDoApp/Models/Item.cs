@@ -11,15 +11,20 @@ namespace ToDoApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Item
     {
         public int ItemID { get; set; }
+        [Display(Name = "Task")]
         public string ItemName { get; set; }
         public string Description { get; set; }
+        [Display(Name = "Due")]
         public Nullable<System.DateTime> DueDate { get; set; }
+        [Display(Name = "Done?")]
         public bool IsDone { get; set; }
         public int Priority { get; set; }
+        [Display(Name = "List")]
         public int ListID { get; set; }
     
         public virtual List List { get; set; }

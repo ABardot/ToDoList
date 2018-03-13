@@ -11,7 +11,8 @@ namespace ToDoApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class List
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +21,9 @@ namespace ToDoApp.Models
             this.Items = new HashSet<Item>();
         }
     
+        [Display(Name = "List")]
         public int ListID { get; set; }
+        [Display(Name = "List")]
         public string ListName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
